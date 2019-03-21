@@ -1,4 +1,5 @@
 $WarpPrefixCls: "xy-notification";
+$NotificationWarpPrefixCls: "xy-notification-wrap";
 
 .#{$WarpPrefixCls} {
     position: relative;
@@ -13,17 +14,72 @@ $WarpPrefixCls: "xy-notification";
 }
 
 .#{$WarpPrefixCls}-topLeft,
-.#{$WarpPrefixCls}-bottomLeft {
-    transform: translateX(-100%);
+.#{$WarpPrefixCls}-bottomLeft,
+.#{$WarpPrefixCls}.state-unmounted {
+    transform: translateX(-50%) scaleY(0);
     opacity: 0;
 }
 .#{$WarpPrefixCls}-topRight,
-.#{$WarpPrefixCls}-bottomRight {
-    transform: translateX(100%);
+.#{$WarpPrefixCls}-bottomRight,
+.#{$WarpPrefixCls}.state-unmounted {
+    transform: translateX(50%) scaleY(0);
     opacity: 0;
 }
 
 .#{$WarpPrefixCls}.#{$WarpPrefixCls}-visible {
-    transform: translateX(0px);
+    transform: translateX(0px) scaleY(1);
     opacity: 1;
+}
+
+.#{$WarpPrefixCls}.state-exiting {
+    animation: close 0.3s;
+}
+
+@keyframes close {
+    from {
+        max-height: 999px;
+    }
+    to {
+        max-height: 0px;
+        padding: 0;
+    }
+}
+
+.#{$NotificationWarpPrefixCls} {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: "tnum";
+    position: absolute;
+    z-index: 1010;
+    max-width: calc(100vw - 32px);
+    padding: 4px;
+    overflow: hidden;
+
+    &.#{$NotificationWarpPrefixCls}-fixed {
+        position: fixed;
+    }
+}
+.#{$NotificationWarpPrefixCls}-topLeft {
+    top: 0;
+    left: 0;
+    margin-left: 24px;
+}
+.#{$NotificationWarpPrefixCls}-topRight {
+    top: 0;
+    right: 0;
+    margin-right: 24px;
+}
+.#{$NotificationWarpPrefixCls}-bottomLeft {
+    bottom: 0;
+    left: 0;
+    margin-left: 24px;
+}
+.#{$NotificationWarpPrefixCls}-bottomRight {
+    bottom: 0;
+    right: 0;
+    margin-right: 24px;
 }
