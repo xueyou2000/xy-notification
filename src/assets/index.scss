@@ -1,0 +1,29 @@
+$WarpPrefixCls: "xy-notification";
+
+.#{$WarpPrefixCls} {
+    position: relative;
+    margin-bottom: 16px;
+    padding: 16px 24px;
+    overflow: hidden;
+    line-height: 1.5;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+
+.#{$WarpPrefixCls}-topLeft,
+.#{$WarpPrefixCls}-bottomLeft {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.#{$WarpPrefixCls}-topRight,
+.#{$WarpPrefixCls}-bottomRight {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.#{$WarpPrefixCls}.#{$WarpPrefixCls}-visible {
+    transform: translateX(0px);
+    opacity: 1;
+}

@@ -36,8 +36,8 @@ yarn add xy-notification
 ```ts
 import React from "react";
 import ReactDOM from "react-dom";
-import XyNotification from "xy-notification";
-ReactDOM.render(<XyNotification />, container);
+import Notification from "xy-notification";
+ReactDOM.render(<Notification />, container);
 ```
 
 ## 开发
