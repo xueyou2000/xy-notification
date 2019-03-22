@@ -3,7 +3,8 @@ import { addParameters, configure, storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import readme from "../README.md";
 import Markdown from "./component/MyMarkdown";
-import { Notification } from "../src";
+import { Notice } from "../src/Notice";
+import { Notification } from "../src/Notification";
 import "./index.css";
 import "../src/assets/index.scss";
 
@@ -23,7 +24,8 @@ function loadStories() {
     storiesOf("Api", module)
         .addDecorator(withInfo)
         .addParameters({ info: { inline: true, source: false } })
-        .add("Props", () => <Notification />);
+        .add("Notice", () => <Notice />)
+        .add("Notification", () => <Notification />);
 
     createExamplesStories();
 }

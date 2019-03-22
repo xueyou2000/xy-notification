@@ -9,12 +9,10 @@ export default function() {
             <h1>简单演示</h1>
             <button onClick={() => setVisible((c) => !c)}>切换显示</button>
 
-            {visible && (
-                <Notice style={{ width: "320px" }}>
-                    <p>Notification Title</p>
-                    <div className="description">I will never close automatically. I will be close automatically. I will never close automatically.</div>
-                </Notice>
-            )}
+            <Notice visible={visible} style={{ width: "320px" }}>
+                <p>Notification Title</p>
+                <div className="description">I will never close automatically. I will be close automatically. I will never close automatically.</div>
+            </Notice>
         </div>
     );
 }

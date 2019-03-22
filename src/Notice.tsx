@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 import { EXITED, useTranstion, useMount, useControll } from "utils-hooks";
 import { NoticeProps } from "./interface";
 
+export const topLeft = "topLeft";
+export const topRight = "topRight";
+export const bottomLeft = "bottomLeft";
+export const bottomRight = "bottomRight";
+
 export function Notice(props: NoticeProps) {
-    const { prefixCls = "xy-notification", className, style, children, placement = "topRight", closeBtn = null, duration = 1500, onClose, onUnmount, id } = props;
+    const { prefixCls = "xy-notification", className, style, children, placement = topRight, closeBtn = null, duration = 1500, onClose, onUnmount, id } = props;
     const [visible, setVisible, isControll] = useControll(props, "visible", "defaultVisible");
     const [ref, state] = useTranstion(visible, true);
     const opening = state.indexOf("en") !== -1;

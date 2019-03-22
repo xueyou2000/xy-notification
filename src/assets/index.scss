@@ -13,6 +13,41 @@ $NotificationWarpPrefixCls: "xy-notification-wrap";
     transition: 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 
+.xy-close {
+    position: absolute;
+    right: 15px;
+    top: 11px;
+    transition: 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    transform-origin: center center;
+    color: rgba(0, 0, 0, 0.65);
+    cursor: pointer;
+    font-size: 12px;
+
+    &:hover {
+        color: #000;
+        transform: rotate(180deg);
+    }
+}
+
+// .#{$WarpPrefixCls}-close {
+//     position: absolute;
+//     right: 15px;
+//     top: 11px;
+
+//     &::before {
+//         content: "\2716";
+//         font-size: 12px;
+//         cursor: pointer;
+//     }
+
+//     &:hover {
+//         transition: 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+//         transform-origin: center center;
+//         color: #000;
+//         transform: rotate(180deg);
+//     }
+// }
+
 .#{$WarpPrefixCls}-topLeft,
 .#{$WarpPrefixCls}-bottomLeft,
 .#{$WarpPrefixCls}.state-unmounted {

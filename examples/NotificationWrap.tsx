@@ -1,10 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Notification } from "../src";
-import { newNotificationInstance } from "../src/Store";
+import { NoticeInstance } from "../src/interface";
 
 export default function() {
+    const noticeRef = useRef<NoticeInstance>();
+
     function test() {
-        let close = newNotificationInstance({
+        if (!noticeRef.current) {
+            return;
+        }
+        const { add } = noticeRef.current;
+        var close = add({
             duration: null,
             closeBtn: <span>关闭</span>,
             children: (
@@ -21,7 +27,7 @@ export default function() {
         <div>
             <h2>NotificationWrap</h2>
             <button onClick={test}>测试</button>
-            <Notification />
+            <Notification bindNoticeRef={noticeRef} />
         </div>
     );
 }

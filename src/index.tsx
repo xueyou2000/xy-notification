@@ -1,3 +1,5 @@
-export * from "./Notice";
-export * from "./Notification";
-export * from "./Store";
+import Notice from "./Notice";
+import Notification from "./Notification";
+import { noticePopup } from "./Popup";
+
+export { Notice, Notification, noticePopup };

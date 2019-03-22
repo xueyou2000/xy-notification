@@ -1,12 +1,11 @@
 import classNames from "classnames";
-import React, { useState } from "react";
-import { usePortal, useGlobalState, MonitorState } from "utils-hooks";
-import { NoticeProps, NotificationProps } from "./interface";
-import Notice from "./Notice";
-import { noticeStore } from "./Store";
+import React, { useState, useRef } from "react";
+import { usePortal, useMount } from "utils-hooks";
+import { NoticeProps, NotificationProps, NoticeInstance } from "./interface";
+import Notice, { topRight } from "./Notice";
 
 export function Notification(props: NotificationProps) {
-    const { prefixCls = "xy-notification-wrap", className, placement = "topRight", getContainer, offset = 24 } = props;
+    const { prefixCls = "xy-notification-wrap", className, placement = topRight, getContainer, offset = 24, getNoticeRef, bindNoticeRef } = props;
     const [renderProtal] = usePortal(getContainer);
     const offsetSty = `${offset}px`;
     const top = placement.indexOf("top") !== -1;
@@ -17,7 +16,25 @@ export function Notification(props: NotificationProps) {
         top: top && offsetSty,
         bottom: !top && offsetSty
     };
-    const [notices, setNotices] = useGlobalState<NoticeProps[]>(noticeStore);
+    const [notices, setNotices] = useState<NoticeProps[]>([]);
+    const noticeRef = useRef<NoticeInstance>();
+
+    function close(id: string) {
+        const config: NoticeProps = notices.find((x) => x.id === id);
+        if (config) {
+            config.visible = false;
+            setNotices([...notices]);
+        }
+    }
+
+    function add(config: NoticeProps) {
+        if (!config.id) {
+            config.id = `notification-id-${notices.length}`;
+        }
+        const cfg = Object.assign({ duration: 4500 }, config, { placement, visible: true, onClose: () => noticeRef.current.close(cfg.id) });
+        setNotices([...notices, cfg]);
+        return () => noticeRef.current.close(cfg.id);
+    }
 
     function remove(id: string) {
         if (notices.some((x) => x.id === id)) {
@@ -25,6 +42,17 @@ export function Notification(props: NotificationProps) {
             setNotices([...other]);
         }
     }
+
+    noticeRef.current = { add, close, remove };
+    if (bindNoticeRef) {
+        bindNoticeRef.current = noticeRef.current;
+    }
+
+    useMount(() => {
+        if (getNoticeRef) {
+            getNoticeRef(noticeRef);
+        }
+    });
 
     return renderProtal(
         <div className={classString} style={style}>
@@ -34,3 +62,5 @@ export function Notification(props: NotificationProps) {
         </div>
     );
 }
+
+export default React.memo(Notification);
