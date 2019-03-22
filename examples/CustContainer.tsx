@@ -29,7 +29,7 @@ export default function() {
         <div>
             <h1>自定义容器</h1>
             <button onClick={test}>测试</button>
-            <Notification bindNoticeRef={noticeRef} getContainer={() => ref.current} />
+            <Notification bindNoticeRef={noticeRef} getContainer={() => ref.current} fixed={false} />
             <div className="block" ref={ref} />
         </div>
     );

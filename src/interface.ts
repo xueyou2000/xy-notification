@@ -65,6 +65,10 @@ export interface NotificationProps {
      */
     offset?: number;
     /**
+     * 是否固定
+     */
+    fixed?: boolean;
+    /**
      * 通知滑出方向
      */
     placement?: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
