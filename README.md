@@ -33,11 +33,16 @@ yarn add xy-notification
 
 ## 使用
 
-```ts
+```tsx
 import React from "react";
 import ReactDOM from "react-dom";
-import Notification from "xy-notification";
-ReactDOM.render(<Notification />, container);
+import { noticePopup } from "xy-notification";
+
+const close = noticePopup({
+    duration: null,
+    closeBtn: <span className="xy-close">✖</span>,
+    children: <p>弹出内容</p>
+});
 ```
 
 ## 开发

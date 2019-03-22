@@ -8728,6 +8728,14 @@ react-helmet-async@^0.2.0:
     react-fast-compare "^2.0.2"
     shallowequal "^1.0.2"
 
+react-hooks-testing-library@^0.3.7:
+  version "0.3.7"
+  resolved "http://registry.npm.taobao.org/react-hooks-testing-library/download/react-hooks-testing-library-0.3.7.tgz#583d6b9026e458c6cdc28874b952b2359647867f"
+  integrity sha1-WD1rkCbkWMbNwoh0uVKyNZZHhn8=
+  dependencies:
+    "@babel/runtime" "^7.3.4"
+    react-testing-library "^6.0.0"
+
 react-hotkeys@2.0.0-pre4:
   version "2.0.0-pre4"
   resolved "http://registry.npm.taobao.org/react-hotkeys/download/react-hotkeys-2.0.0-pre4.tgz#a1c248a51bdba4282c36bf3204f80d58abc73333"

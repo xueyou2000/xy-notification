@@ -1,5 +1,5 @@
-$WarpPrefixCls: "xy-notification";
-$NotificationWarpPrefixCls: "xy-notification-wrap";
+$WarpPrefixCls: "xy-notice";
+$NotificationWarpPrefixCls: "xy-notification";
 
 .#{$WarpPrefixCls} {
     position: relative;
@@ -29,25 +29,6 @@ $NotificationWarpPrefixCls: "xy-notification-wrap";
     }
 }
 
-// .#{$WarpPrefixCls}-close {
-//     position: absolute;
-//     right: 15px;
-//     top: 11px;
-
-//     &::before {
-//         content: "\2716";
-//         font-size: 12px;
-//         cursor: pointer;
-//     }
-
-//     &:hover {
-//         transition: 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-//         transform-origin: center center;
-//         color: #000;
-//         transform: rotate(180deg);
-//     }
-// }
-
 .#{$WarpPrefixCls}-topLeft,
 .#{$WarpPrefixCls}-bottomLeft,
 .#{$WarpPrefixCls}.state-unmounted {
@@ -64,10 +45,6 @@ $NotificationWarpPrefixCls: "xy-notification-wrap";
 .#{$WarpPrefixCls}.#{$WarpPrefixCls}-visible {
     transform: translateX(0px) scaleY(1);
     opacity: 1;
-}
-
-.#{$WarpPrefixCls}.state-exiting {
-    animation: close 0.3s;
 }
 
 @keyframes close {
@@ -93,6 +70,10 @@ $NotificationWarpPrefixCls: "xy-notification-wrap";
     max-width: calc(100vw - 32px);
     padding: 4px;
     overflow: hidden;
+
+    .#{$WarpPrefixCls}.state-exiting {
+        animation: close 0.3s;
+    }
 
     &.#{$NotificationWarpPrefixCls}-fixed {
         position: fixed;

@@ -5,12 +5,13 @@ import { NoticeProps, NotificationProps, NoticeInstance } from "./interface";
 import Notice, { topRight } from "./Notice";
 
 export function Notification(props: NotificationProps) {
-    const { prefixCls = "xy-notification-wrap", className, placement = topRight, getContainer, offset = 24, getNoticeRef, bindNoticeRef } = props;
+    const { prefixCls = "xy-notification", className, placement = topRight, getContainer, offset = 24, getNoticeRef, bindNoticeRef } = props;
     const [renderProtal] = usePortal(getContainer);
     const offsetSty = `${offset}px`;
     const top = placement.indexOf("top") !== -1;
+    const reverse = placement.indexOf("bottom") !== -1;
     const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, {
-        [`${prefixCls}-fixed`]: !!getContainer
+        [`${prefixCls}-fixed`]: !getContainer
     });
     const style: React.CSSProperties = {
         top: top && offsetSty,
@@ -32,7 +33,13 @@ export function Notification(props: NotificationProps) {
             config.id = `notification-id-${notices.length}`;
         }
         const cfg = Object.assign({ duration: 4500 }, config, { placement, visible: true, onClose: () => noticeRef.current.close(cfg.id) });
-        setNotices([...notices, cfg]);
+
+        if (reverse) {
+            setNotices([cfg, ...notices]);
+        } else {
+            setNotices([...notices, cfg]);
+        }
+
         return () => noticeRef.current.close(cfg.id);
     }
 

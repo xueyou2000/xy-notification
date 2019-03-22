@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import { Notification } from "../src";
 import { NoticeInstance } from "../src/interface";
+import "./index.scss";
 
 export default function() {
     const noticeRef = useRef<NoticeInstance>();
+    const ref = useRef();
 
     function test() {
         if (!noticeRef.current) {
@@ -25,9 +27,10 @@ export default function() {
 
     return (
         <div>
-            <h2>NotificationWrap</h2>
+            <h1>自定义容器</h1>
             <button onClick={test}>测试</button>
-            <Notification bindNoticeRef={noticeRef} />
+            <Notification bindNoticeRef={noticeRef} getContainer={() => ref.current} />
+            <div className="block" ref={ref} />
         </div>
     );
 }

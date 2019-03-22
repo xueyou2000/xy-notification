@@ -1,6 +1,6 @@
 {
     "name": "xy-notification",
-    "version": "0.0.1",
+    "version": "0.0.8",
     "description": "基于React的基础组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
@@ -48,6 +48,7 @@
         "quick-react-scripts": "^1.0.0",
         "react-docgen-typescript-loader": "^3.0.1",
         "react-docgen-typescript-webpack-plugin": "^1.1.0",
+        "react-hooks-testing-library": "^0.3.7",
         "react-markdown": "^4.0.6",
         "react-testing-library": "^6.0.0",
         "sass-loader": "^7.1.0"
