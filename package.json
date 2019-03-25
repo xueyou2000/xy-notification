@@ -65,7 +65,7 @@
     },
     "jest": {
         "transformIgnorePatterns": [
-            "<rootDir>/node_modules/(?!(utils-hooks))"
+            "<rootDir>/node_modules/(?!(utils-hooks|utils-dom))"
         ]
     }
 }
