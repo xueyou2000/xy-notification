@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import React, { useEffect, useState } from "react";
-import { EXITED, useTranstion, useMount, useControll } from "utils-hooks";
+import React, { useEffect } from "react";
+import { EXITED, useControll, useMount, useTranstion } from "utils-hooks";
 import { NoticeProps } from "./interface";
 
 export const topLeft = "topLeft";

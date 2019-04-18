@@ -6,7 +6,7 @@ import Notice, { topRight } from "./Notice";
 
 export function Notification(props: NotificationProps) {
     const { prefixCls = "xy-notification", className, placement = topRight, getContainer, offset = 24, getNoticeRef, bindNoticeRef, fixed = true } = props;
-    const [renderProtal] = usePortal(getContainer);
+    const [renderProtal] = usePortal("", getContainer);
     const offsetSty = `${offset}px`;
     const top = placement.indexOf("top") !== -1;
     const reverse = placement.indexOf("bottom") !== -1;

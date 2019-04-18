@@ -1,6 +1,6 @@
 {
     "name": "xy-notification",
-    "version": "0.0.9",
+    "version": "0.0.91",
     "description": "基于React的基础组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
@@ -45,7 +45,7 @@
         "babel-loader": "^8.0.5",
         "hard-source-webpack-plugin": "^0.13.1",
         "highlight.js": "^9.15.6",
-        "quick-react-scripts": "^1.0.0",
+        "quick-react-scripts": "1.0.9",
         "react-docgen-typescript-loader": "^3.0.1",
         "react-docgen-typescript-webpack-plugin": "^1.1.0",
         "react-hooks-testing-library": "^0.3.7",
@@ -57,7 +57,7 @@
         "classnames": "^2.2.6",
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
-        "utils-hooks": "^0.0.44"
+        "utils-hooks": "0.0.60"
     },
     "repository": {
         "type": "git",
@@ -65,7 +65,7 @@
     },
     "jest": {
         "transformIgnorePatterns": [
-            "<rootDir>/node_modules/(?!(utils-hooks|utils-dom))"
+            "<rootDir>/node_modules/(?!(utils-hooks))"
         ]
     }
 }

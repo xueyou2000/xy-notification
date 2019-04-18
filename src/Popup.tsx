@@ -19,7 +19,7 @@ export function noticePopup(config: NoticeProps) {
     function handleGetNoticeRef(ref: React.MutableRefObject<NoticeInstance>) {
         noticeRefMap[placement] = ref;
 
-        // 延迟到Notification加载到DOM后, 在加入
+        // 延迟到Notification加载到DOM后, 再加入
         setTimeout(() => {
             close = ref.current.add(config);
         }, 100);
