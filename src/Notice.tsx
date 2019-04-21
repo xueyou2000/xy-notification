@@ -11,10 +11,10 @@ export const bottomRight = "bottomRight";
 export function Notice(props: NoticeProps) {
     const { prefixCls = "xy-notice", className, style, children, placement = topRight, closeBtn = null, duration = 1500, onClose, onUnmount, id } = props;
     const [visible, setVisible, isControll] = useControll(props, "visible", "defaultVisible");
-    const [ref, state] = useTranstion(visible, true);
+    const [ref, state] = useTranstion(visible);
     const opening = state.indexOf("en") !== -1;
     const classString = classNames(prefixCls, className, `state-${state}`, `${prefixCls}-${placement}`, {
-        [`${prefixCls}-visible`]: opening
+        [`${prefixCls}-visible`]: opening,
     });
 
     function handleClose() {

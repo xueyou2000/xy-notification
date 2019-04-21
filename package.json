@@ -1,6 +1,6 @@
 {
     "name": "xy-notification",
-    "version": "0.0.91",
+    "version": "0.1.0",
     "description": "基于React的基础组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
@@ -57,7 +57,8 @@
         "classnames": "^2.2.6",
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
-        "utils-hooks": "0.0.60"
+        "tslib": "^1.9.3",
+        "utils-hooks": "0.0.63"
     },
     "repository": {
         "type": "git",
