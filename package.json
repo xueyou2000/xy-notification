@@ -1,7 +1,7 @@
 {
     "name": "xy-notification",
-    "version": "0.1.0",
-    "description": "基于React的基础组件",
+    "version": "0.1.1",
+    "description": "基于React的通知组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
     "module": "es/index.js",
@@ -10,7 +10,7 @@
     "files": [
         "es",
         "dist",
-        "assets/*.css"
+        "assets"
     ],
     "scripts": {
         "test": "quick-react-scripts test",
@@ -58,7 +58,7 @@
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
         "tslib": "^1.9.3",
-        "utils-hooks": "0.0.63"
+        "utils-hooks": "0.0.65"
     },
     "repository": {
         "type": "git",

@@ -25,10 +25,10 @@
 
 ```sh
 # npm
-npm install --save xy-notification
+npm install --save xy-notification utils-hooks classnames
 
 # yarn
-yarn add xy-notification
+yarn add xy-notification utils-hooks classnames
 ```
 
 ## 使用
@@ -39,7 +39,7 @@ import ReactDOM from "react-dom";
 import { noticePopup } from "xy-notification";
 
 const close = noticePopup({
-    duration: null,
+    duration: 3000,
     closeBtn: <span className="xy-close">✖</span>,
     children: <p>弹出内容</p>
 });
