@@ -3,7 +3,7 @@ import { Notification } from "../src";
 import { NoticeInstance } from "../src/interface";
 
 export default function() {
-    const noticeRef = useRef<NoticeInstance>();
+    const noticeRef = useRef<NoticeInstance>(null);
 
     function test() {
         if (!noticeRef.current) {
@@ -19,7 +19,7 @@ export default function() {
                     <div className="description">I will never close automatically. I will be close automatically. I will never close automatically.</div>
                     <p onClick={() => close()}>手动关闭</p>
                 </div>
-            )
+            ),
         });
     }
 

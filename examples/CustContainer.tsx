@@ -2,10 +2,11 @@ import React, { useRef } from "react";
 import { Notification } from "../src";
 import { NoticeInstance } from "../src/interface";
 import "./index.scss";
+import "../src/assets/index";
 
 export default function() {
-    const noticeRef = useRef<NoticeInstance>();
-    const ref = useRef();
+    const noticeRef = useRef<NoticeInstance>(null);
+    const ref = useRef(null);
 
     function test() {
         if (!noticeRef.current) {
@@ -21,13 +22,12 @@ export default function() {
                     <div className="description">I will never close automatically. I will be close automatically. I will never close automatically.</div>
                     <p onClick={() => close()}>手动关闭</p>
                 </div>
-            )
+            ),
         });
     }
 
     return (
         <div>
-            <h1>自定义容器</h1>
             <button onClick={test}>测试</button>
             <Notification bindNoticeRef={noticeRef} getContainer={() => ref.current} fixed={false} />
             <div className="block" ref={ref} />

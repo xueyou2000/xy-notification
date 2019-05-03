@@ -11,14 +11,14 @@ export function Notification(props: NotificationProps) {
     const top = placement.indexOf("top") !== -1;
     const reverse = placement.indexOf("bottom") !== -1;
     const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, {
-        [`${prefixCls}-fixed`]: fixed
+        [`${prefixCls}-fixed`]: fixed,
     });
     const style: React.CSSProperties = {
         top: top && offsetSty,
-        bottom: !top && offsetSty
+        bottom: !top && offsetSty,
     };
     const [notices, setNotices] = useState<NoticeProps[]>([]);
-    const noticeRef = useRef<NoticeInstance>();
+    const noticeRef = useRef<NoticeInstance>(null);
 
     function close(id: string) {
         const config: NoticeProps = notices.find((x) => x.id === id);
@@ -66,7 +66,7 @@ export function Notification(props: NotificationProps) {
             {notices.map((cfg) => (
                 <Notice {...cfg} key={cfg.id} onUnmount={() => remove(cfg.id)} />
             ))}
-        </div>
+        </div>,
     );
 }
 

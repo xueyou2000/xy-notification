@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Notice",
+        "title": "通知组件",
+        "desc": "通知组件是通知中最小的单元"
+    },
+    {
+        "name": "CustContainer",
+        "title": "自定义容器",
+        "desc": "将通知组件放在指定容器中"
+    },
+    {
+        "name": "NoticePopup",
+        "title": "弹出通知",
+        "desc": "JS方式弹出通知"
+    },
+    {
+        "name": "NotificationWrap",
+        "title": "Notification",
+        "desc": "Notification管理某一个方向的通知集合"
+    }
+]
