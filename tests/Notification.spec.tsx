@@ -19,7 +19,7 @@ describe("Notification", () => {
     });
 
     test("add", () => {
-        const { result } = renderHook(() => useRef<NoticeInstance>());
+        const { result } = renderHook(() => useRef<NoticeInstance>(null));
         const ref = result.current;
         const div = document.createElement("div");
         document.body.appendChild(div);

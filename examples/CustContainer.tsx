@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { Notification } from "../src";
 import { NoticeInstance } from "../src/interface";
 import "./index.scss";
-import "../src/assets/index";
 
 export default function() {
     const noticeRef = useRef<NoticeInstance>(null);
@@ -22,7 +21,7 @@ export default function() {
                     <div className="description">I will never close automatically. I will be close automatically. I will never close automatically.</div>
                     <p onClick={() => close()}>手动关闭</p>
                 </div>
-            ),
+            )
         });
     }
 

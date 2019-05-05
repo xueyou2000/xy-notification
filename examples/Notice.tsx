@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Notice } from "../src";
-import "../src/assets/index";
 
 export default function() {
     const [visible, setVisible] = useState(false);
