@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { EXITED, useControll, useMount, useTranstion } from "utils-hooks";
 import { NoticeProps } from "./interface";
 
@@ -17,14 +17,14 @@ export function Notice(props: NoticeProps) {
         [`${prefixCls}-visible`]: opening,
     });
 
-    function handleClose() {
+    const handleClose = useCallback(() => {
         if (!isControll) {
             setVisible(false);
         }
         if (onClose) {
             onClose();
         }
-    }
+    }, []);
 
     useEffect(() => {
         if (state === EXITED && onUnmount) {
