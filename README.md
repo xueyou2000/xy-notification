@@ -18,7 +18,7 @@
 
 ```bash
 # yarn
-yarn add xy-notification utils-hooks classnames
+yarn add xy-notification
 ```
 
 ## 使用例子

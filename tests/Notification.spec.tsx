@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { render, fireEvent, act } from "react-testing-library";
-import { cleanup, renderHook } from "react-hooks-testing-library";
+import { render, fireEvent, act } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks";
 import { Notification } from "../src";
 import { NoticeInstance } from "../src/interface";
 
@@ -29,7 +29,7 @@ describe("Notification", () => {
         act(() => {
             ref.current.add({
                 duration: null,
-                children: <p>Hello</p>
+                children: <p>Hello</p>,
             });
         });
 
@@ -38,7 +38,7 @@ describe("Notification", () => {
             close = ref.current.add({
                 id: "b2",
                 duration: null,
-                children: <p>Hello2</p>
+                children: <p>Hello2</p>,
             });
         });
 

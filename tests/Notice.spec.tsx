@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, act } from "react-testing-library";
+import { render, fireEvent, act } from "@testing-library/react";
 import { Notice } from "../src";
 
 describe("Notice", () => {
@@ -7,7 +7,7 @@ describe("Notice", () => {
         const wrapper = render(
             <Notice visible={true}>
                 <p>Hello</p>
-            </Notice>
+            </Notice>,
         );
         const root = wrapper.container.querySelector(".xy-notice");
         expect(root.classList.contains("xy-notice-visible")).toBeTruthy();
@@ -18,13 +18,13 @@ describe("Notice", () => {
         const wrapper = render(
             <Notice visible={true} onUnmount={fn}>
                 <p>Hello</p>
-            </Notice>
+            </Notice>,
         );
 
         wrapper.rerender(
             <Notice visible={false} onUnmount={fn}>
                 <p>Hello</p>
-            </Notice>
+            </Notice>,
         );
 
         const root = wrapper.container.querySelector(".xy-notice");
